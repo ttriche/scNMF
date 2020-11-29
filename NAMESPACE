@@ -1,3 +1,3 @@
-useDynLib(scNMF, .registration=TRUE)
+useDynLib(scNMF)
 importFrom(Rcpp, evalCpp)
 exportPattern("^[[:alpha:]]+")
