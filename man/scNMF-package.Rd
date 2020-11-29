@@ -5,5 +5,3 @@
 \title{
 \packageTitle{scNMF}
 }
-\description{
-\packageDescription{scNMF}
