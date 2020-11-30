@@ -8,7 +8,7 @@
 #' @param Q.sample.size The maximum number of cells in each clustering for which to compute a cosine similarity graph for calculation of Q (only applicable if stop.modularity is set)
 #' @param seed Random seed for subsampling, set to NULL by default
 #' @returns A Seurat object where `object@ident` has been updated with new cluster info. Individual ident classes are created and stashed for each generation (i.e. seuratObj@meta.data$gen1.idents). Clusters are given names as a sequence of 1 and 2 corresponding to bipartite splits, and leaf clusters names are terminated with a 0
-FindClusters.Divisive <- function(seuratObj, stop.modularity = NULL, stop.delta.dist = NULL, stop.min.cells = 50, subsample.size = 1000, seed = NULL, verbose = 1, shift = TRUE, Q.sample.size = 1000){
+FindClusters.Divisive <- function(seuratObj, stop.modularity = NULL, stop.delta.dist = NULL, stop.min.cells = 50, subsample.size = 1000, seed = NULL, verbose = 1, shift = FALSE, Q.sample.size = 1000){
   library(Matrix)
   library(qlcMatrix)
   library(Seurat)
