@@ -31,20 +31,12 @@ Part 3. Deep NMF captures genetic coactivation programs
 Functions yet to write:
  - Unrooted igraph network plot of cell clustering graph
 
+<hr>
+<br>
+<br>
+<br>
+*To do:*
 
-
-
-
-
-
-
-
-
-
-
-
-
- *To do:*
  Vignette 1: Cluster cells in the Seurat hcabm40k dataset as basic introduction, visualize on UMAP coordinates. Visualize cells on UMAP coordinates. Visualize cells with igraph network (write visualization tool). Demonstrate use of different stopping critera for divisive cell clustering (i.e. Newman-Girvan modularity, cosine distance, min cells only)
  Vignette 1 advanced: Cluster cells in Seurat pbmc CITE-seq data to show that clustering captures cell clusters marked by protein genes better than Louvain clustering
  
