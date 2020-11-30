@@ -6,6 +6,7 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
 1. Divisive cell clustering (basic version, advanced version)
 2. Dimensional reduction with NMF for cell visualization (basic version, advanced version)
 3. Deep NMF to learn programs of differential genetic coactivation (basic version, advanced version)
+4. Benchmarking scNMF against existing NMF methods (figure 1).
 // Later? Exploring genetic interactions with systematic deep scNMF (basic version, advanced version)
 
 # Manuscript concept
