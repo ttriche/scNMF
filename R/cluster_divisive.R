@@ -43,27 +43,45 @@ cluster.divisive <- function(d, subsample.size = 5000, seed = NULL, shift = TRUE
   }
 
   # cluster centers are the rowmeans of all cells in that cluster (where clusters are defined by the sign of the (shifted) singular vector)
-  if(!is.null(d.sub)){
+  c1.ncells <- length(names(c[c > 0]))
+  c2.ncells <- length(names(c[c < 0]))
+
+  if(c1.ncells > 1 && c2.ncells > 1){
+    if(!is.null(d.sub)) {
       res[["centers"]] <- cbind(Matrix::rowMeans(d.sub[,names(c[c > 0])]), Matrix::rowMeans(d.sub[,names(c[c < 0])]))
-  } else{
-    c1.ncells <- length(names(c[c > 0]))
-    c2.ncells <- length(names(c[c < 0]))
-    if(c1.ncells > 1 && c2.ncells > 1){
-      res[["centers"]] <- cbind(Matrix::rowMeans(d[,names(c[c > 0])]), Matrix::rowMeans(d[,names(c[c < 0])]))
     } else{
-        if(c1.ncells == 1){
-            center1 <- d[,names(c[c > 0])]
-        } else{
-            center1 <- Matrix::rowMeans(d[,names(c[c > 0])])
-        }
-        if(c2.ncells == 1){
-            center2 <- d[,names(c[c < 0])]
-        } else{
-            center2 <- Matrix::rowMeans(d[,names(c[c < 0])])
-        }
-      res[["centers"]] <- cbind(center1, center2)        
+      res[["centers"]] <- cbind(Matrix::rowMeans(d[,names(c[c > 0])]), Matrix::rowMeans(d[,names(c[c < 0])]))
     }
+  } else{
+    if(c1.ncells == 1){
+      if(!is.null(d.sub)) {
+        center1 <- d.sub[,names(c[c > 0])]
+      } else{
+        center1 <- d[,names(c[c > 0])]
+      }
+    } else{
+      if(!is.null(d.sub)) {
+        center1 <- Matrix::rowMeans(d.sub[,names(c[c > 0])])
+      } else{
+        center1 <- Matrix::rowMeans(d[,names(c[c > 0])])
+      }
+    }
+    if(c2.ncells == 1){
+      if(!is.null(d.sub)) {
+        center2 <- d.sub[,names(c[c < 0])]
+      } else{
+        center2 <- d[,names(c[c < 0])]
+      }
+    } else{
+      if(!is.null(d.sub)) {
+        center2 <- Matrix::rowMeans(d.sub[,names(c[c < 0])])
+      } else{
+        center2 <- Matrix::rowMeans(d[,names(c[c < 0])])
+      }
+    }
+    res[["centers"]] <- cbind(center1, center2)        
   }
+
 
   is.singleton <- FALSE
   if(length(names(c[c>0])) == 1 || length(names(c[c < 0])) == 1) is.singleton <- TRUE
