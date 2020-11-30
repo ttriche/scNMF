@@ -8,43 +8,62 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
 3. Deep NMF to learn programs of differential genetic coactivation (basic version, advanced version)
 // Later? Exploring genetic interactions with systematic deep scNMF (basic version, advanced version)
 
-## Manuscript: Deep NMF of Single Cell Transcriptomes Learns Gene Coactivation Programs
-Figure 1. Fast and robust NMF on single-cell datasets after compression by divisive clustering (hcabm40k dataset)
- A. Schematic of genes x cells -> compressed genes x cell clusters -> NMF -> A) Deep NMF for gene set learning or B) cell visualization
- B. Number of clusters generated from a range of distance-based stopping criteria, modularity-based stopping criteria, or min cells stopping criteria.
- C. Robustness of various NMF methods on raw data. CoGAPS/scNMF/scater/nnmf.
- D. Robustness of various NMF methods on compressed data. CoGAPS/scNMF/scater/nnmf.
- E. Runtime for each method.
+# Manuscript concept
 
-Figure 2. Visualization of cell clusters on NMF coordinates
-  A. Schematic: Projection of cells onto a lower-dimensional manifold from NMF factor mappings with NNLS
-  B. tSNE plot of cells from Figure 1 on PCA coordinates with Louvain clustering (Seurat DimPlot)
-  C. tSNE plot of cells from Figure 1 on PCA coordinates with divisive clustering (Seurat DimPlot)
-  D. tSNE plot of cells from Figure 1 on NMF coordinates with Louvain clustering (Seurat DimPlot)
-  E. tSNE plot of cells from Figure 1 on NMF coordinates with divisive clustering (Seurat DimPlot)
+## Title: Deep NMF of Single Cell Transcriptomes Learns Gene Coactivation Programs
 
-Part 3. Deep NMF captures genetic coactivation programs
- A. Schematic: Framework for deep NMF
- B. Deep NMF on Mouse Organogenesis Cell Atlas at each time point
- C. Gene ontology term enrichment in deep NMF factors (fgsea, gheatmap)
- D. fgsea enrichment plot for selected factor (fgsea)
- E. LDAvis of specific factors (LDAvis)
- H. Plot factors on tSNE plot with NMF coordinates (i.e. FZD4/Lrp5/Tspan12), cell clusters as assigned by MOCA authors, labeled with MOCA labels
- 
-Part 4. WNT pathway transcriptional architecture as learned by Deep NMF
- A. Unrooted graph of hierarchical clustering of FZD+ vectors showing FZD1-10 bias as pie charts.
- B. Cell type enrichment of each vector
- C. Transmembrane gene associations with FZDs in each factor (GPCRs, LRPs, kinases, other)
- D. Transcription factors marking each factor
- E. Lrp1/Lrp4/Lrp5/Lrp6/Lrp8/Vldlr/Ldlr coexpression (cosine similarity) bar chart with each FZD
- F. Co-incidence of Ras/Mapk/Egfr/Erk with Wnt, shown as a bar chart
- 
-Make data available within R package for easy use.
+### Figure 1. Fast and robust NMF on single-cell datasets after compression by divisive clustering (hcabm40k dataset)
+<ol>
+ <li>Schematic of genes x cells -> compressed genes x cell clusters -> NMF -> A) Deep NMF for gene set learning or B) cell visualization</li>
+ <li>Number of clusters generated from a range of distance-based stopping criteria, modularity-based stopping criteria, or min cells stopping criteria</li>
+ <li>Robustness of various NMF methods on raw data. CoGAPS/scNMF/scater/nnmf</li>
+ <li>Robustness of various NMF methods on compressed data. CoGAPS/scNMF/scater/nnmf</li>
+ <li>Runtime for each method</li>
+</ol>
+<br />
+<br />
 
+### Figure 2. Visualization of cell clusters on NMF coordinates
+<ol>
+ <li>Schematic: Projection of cells onto a lower-dimensional manifold from NMF factor mappings with NNLS</li>
+  <li>tSNE plot of cells from Figure 1 on PCA coordinates with Louvain clustering (Seurat DimPlot)</li>
+  <li>tSNE plot of cells from Figure 1 on PCA coordinates with divisive clustering (Seurat DimPlot)</li>
+  <li>tSNE plot of cells from Figure 1 on NMF coordinates with Louvain clustering (Seurat DimPlot)</li>
+  <li>tSNE plot of cells from Figure 1 on NMF coordinates with divisive clustering (Seurat DimPlot)</li>
+</ol>
+<br />
+<br />
+### Figure 3. Deep NMF captures genetic coactivation programs
+<ol>
+ <li>Schematic: Framework for deep NMF</li>
+ <li>Deep NMF on Mouse Organogenesis Cell Atlas at each time point</li>
+ <li>Gene ontology term enrichment in deep NMF factors (fgsea, gheatmap)</li>
+ <li>fgsea enrichment plot for selected factor (fgsea)</li>
+ <li>LDAvis of specific factors (LDAvis)</li>
+ <li>Plot factors on tSNE plot with NMF coordinates (i.e. FZD4/Lrp5/Tspan12), cell clusters as assigned by MOCA authors, labeled with MOCA labels</li>
+</ol>
+<br />
+<br />
+### Figure 4. WNT pathway transcriptional architecture as learned by Deep NMF
+<ol>
+ <li>Unrooted graph of hierarchical clustering of FZD+ vectors showing FZD1-10 bias as pie charts.</li>
+ <li>Cell type enrichment of each vector</li>
+ <li>Transmembrane gene associations with FZDs in each factor (GPCRs, LRPs, kinases, other)</li>
+ <li>Transcription factors marking each factor</li>
+ <li>Lrp1/Lrp4/Lrp5/Lrp6/Lrp8/Vldlr/Ldlr coexpression (cosine similarity) bar chart with each FZD</li>
+ <li>Co-incidence of Ras/Mapk/Egfr/Erk with Wnt, shown as a bar chart</li>
+</ol>
+<br />
+<br />
+<b>Data availability:</b>
+<ul>
+ <li>Compressions of the MOCA dataset available as a sparse matrix</li>
+ <li>hcabm40k dataset is available through the `SeuratData` package</li>
+ <li>Cell annotations for the MOCA dataset are available as `cell_annotate.csv` on the MOCA figshare page</li>
+ <li>The R package is publicly available on GitHub and will be submitted to Bioconductor at the time of submission</li>
+</ul>
 
 <hr>
-<br>
-<br>
 <br>
 *To do:*
 
