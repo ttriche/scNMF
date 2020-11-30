@@ -10,9 +10,9 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
 
 # Manuscript concept
 
-## Title: Deep NMF of Single Cell Transcriptomes Learns Gene Coactivation Programs
+### Title: Deep NMF of Single Cell Transcriptomes Learns Gene Coactivation Programs
 
-### Figure 1. Fast and robust NMF on single-cell datasets after compression by divisive clustering (hcabm40k dataset)
+#### Figure 1. Fast and robust NMF on single-cell datasets after compression by divisive clustering (hcabm40k dataset)
 <ol>
  <li>Schematic of genes x cells -> compressed genes x cell clusters -> NMF -> A) Deep NMF for gene set learning or B) cell visualization</li>
  <li>Number of clusters generated from a range of distance-based stopping criteria, modularity-based stopping criteria, or min cells stopping criteria</li>
@@ -20,10 +20,8 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
  <li>Robustness of various NMF methods on compressed data. CoGAPS/scNMF/scater/nnmf</li>
  <li>Runtime for each method</li>
 </ol>
-<br />
-<br />
 
-### Figure 2. Visualization of cell clusters on NMF coordinates
+#### Figure 2. Visualization of cell clusters on NMF coordinates
 <ol>
  <li>Schematic: Projection of cells onto a lower-dimensional manifold from NMF factor mappings with NNLS</li>
   <li>tSNE plot of cells from Figure 1 on PCA coordinates with Louvain clustering (Seurat DimPlot)</li>
@@ -31,9 +29,8 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
   <li>tSNE plot of cells from Figure 1 on NMF coordinates with Louvain clustering (Seurat DimPlot)</li>
   <li>tSNE plot of cells from Figure 1 on NMF coordinates with divisive clustering (Seurat DimPlot)</li>
 </ol>
-<br />
-<br />
-### Figure 3. Deep NMF captures genetic coactivation programs
+
+#### Figure 3. Deep NMF captures genetic coactivation programs
 <ol>
  <li>Schematic: Framework for deep NMF</li>
  <li>Deep NMF on Mouse Organogenesis Cell Atlas at each time point</li>
@@ -42,9 +39,8 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
  <li>LDAvis of specific factors (LDAvis)</li>
  <li>Plot factors on tSNE plot with NMF coordinates (i.e. FZD4/Lrp5/Tspan12), cell clusters as assigned by MOCA authors, labeled with MOCA labels</li>
 </ol>
-<br />
-<br />
-### Figure 4. WNT pathway transcriptional architecture as learned by Deep NMF
+
+#### Figure 4. WNT pathway transcriptional architecture as learned by Deep NMF
 <ol>
  <li>Unrooted graph of hierarchical clustering of FZD+ vectors showing FZD1-10 bias as pie charts.</li>
  <li>Cell type enrichment of each vector</li>
@@ -53,9 +49,8 @@ scNMF is a toolkit for compression of single cell datasets (divisive clustering)
  <li>Lrp1/Lrp4/Lrp5/Lrp6/Lrp8/Vldlr/Ldlr coexpression (cosine similarity) bar chart with each FZD</li>
  <li>Co-incidence of Ras/Mapk/Egfr/Erk with Wnt, shown as a bar chart</li>
 </ol>
-<br />
-<br />
-<b>Data availability:</b>
+
+#### Data availability:
 <ul>
  <li>Compressions of the MOCA dataset available as a sparse matrix</li>
  <li>hcabm40k dataset is available through the `SeuratData` package</li>
