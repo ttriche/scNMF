@@ -4,11 +4,11 @@
 #' @param stop.modularity Optional, stopping criteria for modularity (default = NULL, modularity not used as stopping criteria). Most logical stopping criteria (if used) is 0. Newman-Girvan modularity ranges from -1 to 1.
 #' @param stop.delta.dist Optional, stopping criteria based on distance. Faster calculation than modularity, measures the mean fold change in similarity for all cells between a child cluster center and a parent cluster center using cosine similarity.
 #' @param stop.min.cells Required, the minimum number of cells permitted in a cluster. Real valued between 1 and ncol(A). Default 50.
-#' @param subsample.size The maximum number of cells to sample for determining cluster centers by ssvd
+#' @param subsample.size The maximum number of cells to sample for determining cluster centers by ssvd (default 20000)
 #' @param Q.sample.size The maximum number of cells in each clustering for which to compute a cosine similarity graph for calculation of Q (only applicable if stop.modularity is set)
 #' @param seed Random seed for subsampling, set to NULL by default
 #' @returns A Seurat object where `object@ident` has been updated with new cluster info. Individual ident classes are created and stashed for each generation (i.e. seuratObj@meta.data$gen1.idents). Clusters are given names as a sequence of 1 and 2 corresponding to bipartite splits, and leaf clusters names are terminated with a 0
-FindClusters.Divisive <- function(seuratObj, stop.modularity = NULL, stop.delta.dist = NULL, stop.min.cells = 50, subsample.size = 1000, seed = NULL, verbose = 1, shift = FALSE, Q.sample.size = 1000){
+FindClusters.Divisive <- function(seuratObj, stop.modularity = NULL, stop.delta.dist = NULL, stop.min.cells = 50, subsample.size = 20000, seed = NULL, verbose = 1, shift = FALSE, Q.sample.size = 1000){
   library(Matrix)
   library(qlcMatrix)
   library(Seurat)
