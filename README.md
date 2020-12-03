@@ -3,11 +3,10 @@
 scNMF is a toolkit for compression of single cell datasets (divisive clustering) and fast factorization of these compressed spaces (NMF). NMF on single cell data can learn the architecture of gene coactivation programs that yield observed transcriptional states, and can be used to visualize cells on UMAP/tSNE coordinates based on these coactivated gene programs.
 
 ## Vignettes
-1. Divisive cell clustering 
-2. Dimensional reduction with NMF for cell visualization
-3. Deep NMF to learn programs of differential genetic coactivation 
-4. Benchmarking scNMF against existing NMF methods (figure 1) 
-// Later? Exploring genetic interactions with systematic deep scNMF
+
+TL;DR vignette: Guided clustering and cell visualization with scNMF
+
+
 
 # Manuscript concept
 
