@@ -13,7 +13,7 @@
 //using namespace Rcpp;
 using namespace arma;
 
-/*****************************************
+/* ****************************************
 
 This code is heavily modified from the NNLM::nnmf GitHub package
 An emphasis was placed on increasing computation speed for specific use cases
@@ -28,7 +28,7 @@ MSE loss is calculated in a parallel manner
 Additional speed gains may be obtained by sparse matrix support
 However, when zeros aren't missing values, sparse operations will not offer dramatic speed gains
 
-****************************************/
+*************************************** */
 
 Rcpp::List c_nnmf(const arma::mat &A,
 				  const unsigned int k,
