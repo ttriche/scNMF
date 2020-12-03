@@ -1,12 +1,29 @@
 Package: scNMF
 Type: Package
-Title: What the package does (short line)
+Title: Fast Non-negative matrix factorization toolkit for single cell data
 Version: 1.0
-Date: 2020-12-02
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
-Imports: Rcpp (>= 1.0.5)
-LinkingTo: Rcpp, RcppArmadillo
+Date: 2020-12-03
+Author: Zach DeBruine
+Maintainer: Zach.DeBruine@vai.org
+Description: Fast non-negative matrix factorization, with accessory functions for NMF cross-validation and divisive clustering for dataset compression specific to single cell use cases. scNMF can operate natively on Seurat objects.
+License: Who knows
+Depends:
+    R (>= 3.5.0)
+Imports:
+    Rcpp (>= 1.0.5),
+    stats,
+    utils,
+    irlba,
+    cosSparse,
+    wordspace,
+    Matrix
+LinkingTo: 
+    Rcpp, 
+    RcppArmadillo, 
+    RcppProgress
 RoxygenNote: 7.1.1
+Encoding: UTF-8
+NeedsCompilation: yes
+VignetteBuilder: knitr
+BugReports: https://github.com/zdebruine/scNMF/issues
+URL: https://github.com/zdebruine/scNMF
