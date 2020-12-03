@@ -10,10 +10,8 @@ Depends:
     R (>= 3.5.0)
 Imports:
     Rcpp (>= 1.0.5),
-    stats,
-    utils,
     irlba,
-    cosSparse,
+    qlcMatrix,
     wordspace,
     Matrix
 LinkingTo: 
