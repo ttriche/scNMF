@@ -1,4 +1,4 @@
-#' Fast non-negative matrix factorization by alternating least squares with sequential coordinate descent against mean squared error loss
+#' Fast non-negative matrix factorization by ALS NNLS with MSE loss
 #'
 #' @param A A matrix to be factorized. If sparse, will be converted to dense
 #' @param k Decomposition rank, integer (required)
