@@ -14,7 +14,8 @@ Imports:
     irlba,
     qlcMatrix,
     wordspace,
-    Matrix
+    Matrix,
+    RcppHungarian
 LinkingTo: 
     Rcpp, 
     RcppArmadillo, 
