@@ -2,11 +2,7 @@
 % Please edit documentation in R/nnmf.R
 \name{nnmf}
 \alias{nnmf}
-\title{Fast non-negative matrix factorization by alternating least squares with sequential coordinate descent against mean squared error loss
-Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several improvements for efficiency in unregularized and non-masked use cases
-Function is theoretically equivalent to NNLM::nnmf(..., method = "scd", loss = "mse", alpha = c(0,0,0), beta = c(0,0,0), mask = NULL, init = NULL)
-This method offers >2x faster calculation than NNLM::nnmf on a single thread for low-rank factorization of a 10k x 200 matrix, and increasingly faster with matrix size, number of threads, and rank
-Key differences from NNLM::nnmf are 1) an improved OpemMP multithreading loop structure, 2) a parallelized MSE error loss function, 3) fewer conditional checks, 4) no MKL error calculations, and 5) no support for regularization, masking, or non-random initialization}
+\title{Fast non-negative matrix factorization by ANLS with MSE loss
 \usage{
 nnmf(
   A,
@@ -37,9 +33,9 @@ nnmf(
 A list of W and H matrices
 }
 \description{
-Fast non-negative matrix factorization by alternating least squares with sequential coordinate descent against mean squared error loss
-Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several improvements for efficiency in unregularized and non-masked use cases
-Function is theoretically equivalent to NNLM::nnmf(..., method = "scd", loss = "mse", alpha = c(0,0,0), beta = c(0,0,0), mask = NULL, init = NULL)
-This method offers >2x faster calculation than NNLM::nnmf on a single thread for low-rank factorization of a 10k x 200 matrix, and increasingly faster with matrix size, number of threads, and rank
-Key differences from NNLM::nnmf are 1) an improved OpemMP multithreading loop structure, 2) a parallelized MSE error loss function, 3) fewer conditional checks, 4) no MKL error calculations, and 5) no support for regularization, masking, or non-random initialization
+Fast non-negative matrix factorization by alternating least squares with sequential coordinate descent against mean squared error loss.\n
+Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several improvements for efficiency in unregularized and non-masked use cases.\n
+Function is theoretically equivalent to \code{NNLM::nnmf(..., method = "scd", loss = "mse", alpha = c(0,0,0), beta = c(0,0,0), mask = NULL, init = NULL)}\n
+This method offers >2x faster calculation than NNLM::nnmf on a single thread for low-rank factorization of a 10k x 200 matrix, and increasingly faster with matrix size, number of threads, and rank.\n
+Key differences from NNLM::nnmf are:<ul><li>an improved OpemMP multithreading loop structure</li><li>a parallelized MSE error loss function</li><li>fewer conditional checks</li><li>no MKL error calculations</li><li>no support for regularization, masking, or non-random initialization</li></ul>\n
 }
