@@ -5,7 +5,7 @@ Description: Fast non-negative matrix factorization, with accessory functions
     for NMF cross-validation and divisive clustering for dataset compression
     specific to single cell use cases. scNMF can operate natively on Seurat
     objects.
-Version: 1.0
+Version: 1.0.1
 Date: 2020-12-03
 Authors@R: person("Zach", "DeBruine", email = "zach.debruine@vai.org", role = c("aut", "cre"))
 Depends: R (>= 3.5.0)
