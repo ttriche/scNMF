@@ -2,36 +2,36 @@
 % Please edit documentation in R/cluster_divisive.R
 \name{cluster.divisive}
 \alias{cluster.divisive}
-\title{A single instance of divisive clustering by sparse SVD}
+\title{Fast divisive clustering of columns in a large sparse matrix}
 \usage{
 cluster.divisive(
-  d,
-  subsample.size = 5000,
+  input,
+  min.samples = 10,
+  subsample = 10000,
   seed = NULL,
-  shift = TRUE,
-  dist = TRUE,
-  Q = FALSE,
-  Q.sample.size = 1000
+  verbose = 2,
+  min.dist = NULL,
+  idents.prefix = ""
 )
 }
 \arguments{
-\item{d}{A sparse dgCMatrix with genes in rows and cells in columns}
+\item{input}{A dgCMatrix matrix or a Seurat object with counts for clustering in the default assay counts slot}
 
-\item{subsample.size}{Number of cells to subsample for determination of cluster centers by SVD}
+\item{min.samples}{The minimum number of samples permitted in a cluster. Real valued between 2 and ncol(input), defaults to 10}
 
-\item{seed}{Random seed for subsampling}
+\item{subsample}{Number of samples to subsample for SVD and delta distance calculations, usually only useful for large matrices (> 10000 samples)}
 
-\item{shift}{Boolean, shift the clustering vector to achieve optimal bipartitioning about 0 (shift determined by the mean of both kmeans centers on the bimodal density distribution of the clustering vector)}
+\item{seed}{Random seed for subsampling (NULL by default)}
 
-\item{dist}{Whether to calculate the change in distance (delta.dist) between cells and their respective child cluster center relative to the parent center}
+\item{verbose}{0 = no output, 1 = output for each generation, 2 = progress bar for each generation, 3 = details for each division}
 
-\item{Q}{Boolean, calculate Newman-Girvan modularity}
+\item{min.dist}{Minimum delta distance, which is a proportion of how much more similar samples are to their assigned cluster than their opponent cluster. NULL by default. Values which approximate Newman-Girvan modularity of 0 are usually between 0.01 and 0.05.}
 
-\item{Q.sample.size}{How many cells at most to use for calculating the modularity. A square cosine similarity matrix of this size is computed. Default 1000.}
+\item{idents.prefix}{Prefix for ident names, useful to prevent later runs of cluster.divisive on the same object from overwriting previous idents}
 }
 \value{
-A list of cells in either cluster and the dip test result for bimodality between cluster centers
+If a Seurat object was input, a Seurat object with idents set to cluster IDs. If a sparse matrix was input, a list of cluster assignments for each sample.
 }
 \description{
-A single instance of divisive clustering by sparse SVD
+Fast divisive clustering of columns in a large sparse matrix
 }

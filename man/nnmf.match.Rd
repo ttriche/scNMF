@@ -2,51 +2,45 @@
 % Please edit documentation in R/nnmf_match.R
 \name{nnmf.match}
 \alias{nnmf.match}
-\title{Runs NMF on a dataset by splitting it into halves, learning an NMF model on both halves independently, and computes angles between latent factors in both models}
+\title{Runs NMF on non-overlapping halves of a dataset and computes minimum possible cosine angle between both models}
 \usage{
 nnmf.match(
   A,
   ind = NULL,
-  byrow = TRUE,
+  byrow = FALSE,
   k = NULL,
   max.iter = 1000,
   rel.tol = 0.001,
   n.threads = 0,
   verbose = 2,
-  inner.max.iter = 100,
-  inner.rel.tol = 1e-06,
   trace = 5,
   seed = NULL
 )
 }
 \arguments{
-\item{A}{A matrix to be factorized, in dense format}
+\item{A}{A matrix to be factorized. If sparse, will be converted to dense}
 
 \item{ind}{Indices in A to be assigned to one half (optional)}
 
 \item{byrow}{Whether indices represent rows or columns (rows, by default)}
 
-\item{k}{Rank of decomposition, integer or array of integers. If array, match will be run at multiple ranks of k.}
+\item{k}{Decomposition rank(s), integer or array of integers. If array, match will be run at multiple ranks of k.}
 
-\item{max.iter}{Maximum number of alternating NNLS solutions for H and W, integer. Default 1000.}
+\item{max.iter}{Maximum number of alternating NNLS solutions for H and W, integer (default 1000)}
 
-\item{rel.tol}{Stop criterion, defined as the relative tolerance between two successive iterations: |e2-e1|/avg(e1,e2). Default 1e-3.}
+\item{rel.tol}{Stop criterion, defined as the relative tolerance between two successive iterations: |e2-e1|/avg(e1,e2). (default 1e-3)}
 
 \item{n.threads}{Number of threads/CPUs to use. Default to 0 (all cores).}
 
-\item{verbose}{0 = no tracking, 1 = progress bar relative to max.iter, 2 = iteration info. Default 2.}
+\item{verbose}{0 = no tracking, 1 = progress bar relative to max.iter, 2 = updates every trace iterations (default 2)}
 
-\item{inner.max.iter}{Maximum number of iterations passed to each inner W or H matrix updating function. Default 1e-6.}
-
-\item{inner.rel.tol}{Stop criterion for the inner sequential coordinate descent least squares loop, defined as relative tolerance passed to inner W or H during matrix updating: |e2-e1|/avg(e1,e2). Default 1e-6.}
-
-\item{trace}{An integer indicating how frequently the MSE error should be calculated and checked for convergence. To check error every iteration, specify 1. To avoid checking error at all, specify trace > max.iter.  Default 5.}
+\item{trace}{An integer specifying a multiple of iterations at which MSE error should be calculated and checked for convergence. To check error every iteration, specify 1. To avoid checking error at all, specify trace > max.iter (default is 5, and is generally an efficient and effective value)}
 
 \item{seed}{Random seed for determining indices (if not specified)}
 }
 \value{
-Cosine angles between paired factors from both factorizations. Angle values range from 0 to 1, smaller values indicate greater similarity between factors.
+A list of NMF models and angle between models for each rank. If multiple ranks are specified then summary statistics will also be calculated.
 }
 \description{
-Runs NMF on a dataset by splitting it into halves, learning an NMF model on both halves independently, and computes angles between latent factors in both models
+Runs NMF on non-overlapping halves of a dataset and computes minimum possible cosine angle between both models
 }

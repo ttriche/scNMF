@@ -8,4 +8,3 @@ c_nnmf <- function(A, k, max_iter, rel_tol, n_threads, verbose, inner_max_iter, 
 c_project <- function(A, W, n_threads, inner_max_iter, inner_rel_tol) {
     .Call(`_scNMF_c_project`, A, W, n_threads, inner_max_iter, inner_rel_tol)
 }
-

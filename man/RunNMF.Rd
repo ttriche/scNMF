@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_nmf.R
 \name{RunNMF}
 \alias{RunNMF}
-\title{Non-negative matrix factorization on the average expression of clusters in a Seurat object identity class and projection of cells onto NMF coordinates}
+\title{Run NMF on cluster centers calculated from a Seurat object ident class, and project cells onto NMF coordinates}
 \usage{
 RunNMF(
   object,
@@ -18,7 +18,7 @@ RunNMF(
 \arguments{
 \item{object}{Seurat object}
 
-\item{k}{Decomposition rank, integer.}
+\item{k}{Decomposition rank, integer}
 
 \item{ident}{Ident to average across (default is the active Idents()). Specify any valid discrete 'object@meta.data$ slot'.}
 
@@ -35,5 +35,5 @@ RunNMF(
 \item{return}{Seurat object with a dimensional reduction NMF slot}
 }
 \description{
-Non-negative matrix factorization on the average expression of clusters in a Seurat object identity class and projection of cells onto NMF coordinates
+Run NMF on cluster centers calculated from a Seurat object ident class, and project cells onto NMF coordinates
 }

@@ -2,20 +2,22 @@
 % Please edit documentation in R/nnmf_project.R
 \name{nnmf.project}
 \alias{nnmf.project}
-\title{Given W and a set of samples, calculate the optimal mapping H such that the objective mean((samples - WH)^2) is minimized}
+\title{Calculate an optimal mapping weights (H) for a set of samples to a latent model (W.model)
+This function will minimize mean((samples - W.model %*% H)^2)}
 \usage{
 nnmf.project(samples, W.model, n.threads = 0)
 }
 \arguments{
-\item{samples}{Samples to be projected onto W.model. Dense matrix.}
+\item{samples}{Samples to be projected onto W.model}
 
 \item{W.model}{NMF factor model (genes x factors) for mapping to cells}
 
 \item{n.threads}{Number of threads/CPUs to use. Default to 0 (all cores)}
 }
 \value{
-A list of fit weights (H), an imputed counts matrix (A_imputed)
+A list of fit weights (H)
 }
 \description{
-Given W and a set of samples, calculate the optimal mapping H such that the objective mean((samples - WH)^2) is minimized
+Calculate an optimal mapping weights (H) for a set of samples to a latent model (W.model)
+This function will minimize mean((samples - W.model %*% H)^2)
 }

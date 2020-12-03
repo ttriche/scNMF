@@ -2,8 +2,8 @@
 % Please edit documentation in R/nnmf.R
 \name{nnmf}
 \alias{nnmf}
-\title{Non-negative matrix factorization with alternating least squares with sequential coordinate descent against mean squared error loss
-Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several modifications for speed gains
+\title{Fast non-negative matrix factorization by alternating least squares with sequential coordinate descent against mean squared error loss
+Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several improvements for efficiency in unregularized and non-masked use cases
 Function is theoretically equivalent to NNLM::nnmf(..., method = "scd", loss = "mse", alpha = c(0,0,0), beta = c(0,0,0), mask = NULL, init = NULL)
 This method offers >2x faster calculation than NNLM::nnmf on a single thread for low-rank factorization of a 10k x 200 matrix, and increasingly faster with matrix size, number of threads, and rank
 Key differences from NNLM::nnmf are 1) an improved OpemMP multithreading loop structure, 2) a parallelized MSE error loss function, 3) fewer conditional checks, 4) no MKL error calculations, and 5) no support for regularization, masking, or non-random initialization}
@@ -14,37 +14,31 @@ nnmf(
   max.iter = 1000,
   rel.tol = 0.001,
   n.threads = 0,
-  verbose = 2,
-  inner.max.iter = 100,
-  inner.rel.tol = 1e-06,
+  verbose = TRUE,
   trace = 5
 )
 }
 \arguments{
-\item{A}{A matrix to be factorized, in dense format.}
+\item{A}{A matrix to be factorized. If sparse, will be converted to dense}
 
-\item{k}{Decomposition rank, integer.}
+\item{k}{Decomposition rank, integer (required)}
 
-\item{max.iter}{Maximum number of alternating NNLS solutions for H and W, integer. Default 1000.}
+\item{max.iter}{Maximum number of alternating NNLS solutions for H and W, integer (default 1000)}
 
-\item{rel.tol}{Stop criterion, defined as the relative tolerance between two successive iterations: |e2-e1|/avg(e1,e2). Default 1e-3.}
+\item{rel.tol}{Stop criterion, defined as the relative tolerance between two successive iterations: |e2-e1|/avg(e1,e2). (default 1e-3)}
 
 \item{n.threads}{Number of threads/CPUs to use. Default to 0 (all cores).}
 
-\item{verbose}{0 = no tracking, 1 = progress bar relative to max.iter, 2 = iteration info. Default 2.}
+\item{verbose}{boolean, give updates every trace iterations}
 
-\item{inner.max.iter}{Maximum number of iterations passed to each inner W or H matrix updating function. Default 1e-6.}
-
-\item{inner.rel.tol}{Stop criterion for the inner sequential coordinate descent least squares loop, defined as relative tolerance passed to inner W or H during matrix updating: |e2-e1|/avg(e1,e2). Default 1e-6.}
-
-\item{trace}{An integer indicating how frequently the MSE error should be calculated and checked for convergence. To check error every iteration, specify 1. To avoid checking error at all, specify trace > max.iter.  Default 5.}
+\item{trace}{An integer specifying a multiple of iterations at which MSE error should be calculated and checked for convergence. To check error every iteration, specify 1. To avoid checking error at all, specify trace > max.iter (default is 5, and is generally an efficient and effective value)}
 }
 \value{
 A list of W and H matrices
 }
 \description{
-Non-negative matrix factorization with alternating least squares with sequential coordinate descent against mean squared error loss
-Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several modifications for speed gains
+Fast non-negative matrix factorization by alternating least squares with sequential coordinate descent against mean squared error loss
+Methods are adapted from Lin and Boutros, 2018 BMC Bioinformatics with several improvements for efficiency in unregularized and non-masked use cases
 Function is theoretically equivalent to NNLM::nnmf(..., method = "scd", loss = "mse", alpha = c(0,0,0), beta = c(0,0,0), mask = NULL, init = NULL)
 This method offers >2x faster calculation than NNLM::nnmf on a single thread for low-rank factorization of a 10k x 200 matrix, and increasingly faster with matrix size, number of threads, and rank
 Key differences from NNLM::nnmf are 1) an improved OpemMP multithreading loop structure, 2) a parallelized MSE error loss function, 3) fewer conditional checks, 4) no MKL error calculations, and 5) no support for regularization, masking, or non-random initialization
