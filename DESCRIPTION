@@ -4,7 +4,6 @@ Title: Fast Non-negative matrix factorization toolkit for single cell data
 Version: 1.0
 Date: 2020-12-03
 Author: Zach DeBruine
-Maintainer: Zach.DeBruine@vai.org
 Description: Fast non-negative matrix factorization, with accessory functions for NMF cross-validation and divisive clustering for dataset compression specific to single cell use cases. scNMF can operate natively on Seurat objects.
 License: Who knows
 Depends:
