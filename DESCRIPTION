@@ -7,9 +7,8 @@ Description: Fast non-negative matrix factorization, with accessory functions
     objects.
 Version: 1.0
 Date: 2020-12-03
-Authors@R: c(person("Zach", "DeBruine", email = "zach.debruine@vai.org", role = c("aut", "cre")))
-Depends:
-    R (>= 3.5.0)
+Authors@R: person("Zach", "DeBruine", email = "zach.debruine@vai.org", role = c("aut", "cre"))
+Depends: R (>= 3.5.0)
 Imports:
     Rcpp (>= 1.0.5),
     irlba,
