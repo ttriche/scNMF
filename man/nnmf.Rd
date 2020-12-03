@@ -2,7 +2,7 @@
 % Please edit documentation in R/nnmf.R
 \name{nnmf}
 \alias{nnmf}
-\title{Fast non-negative matrix factorization by ANLS with MSE loss
+\title{Fast non-negative matrix factorization by ANLS with MSE loss}
 \usage{
 nnmf(
   A,
