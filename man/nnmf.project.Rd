@@ -3,7 +3,7 @@
 \name{nnmf.project}
 \alias{nnmf.project}
 \title{Calculate an optimal mapping weights (H) for a set of samples to a latent model (W.model)
-This function will minimize mean((samples - W.model %*% H)^2)}
+This function will minimize mean((samples - W.model*H)^2)}
 \usage{
 nnmf.project(samples, W.model, n.threads = 0)
 }
